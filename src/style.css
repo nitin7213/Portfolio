@@ -1,17 +1,15 @@
 html {
   --section-background-color: linear-gradient(
     to bottom left,
-    rgba(17, 16, 16, 0.582),
-    rgba(12, 8, 24, 0.904)
-  );
+    #0e1f33, #1f3d4e
+);
 
-  --image-gradient: linear-gradient(
+--image-gradient: linear-gradient(
     to bottom left,
-    rgba(17, 16, 16, 0.678),
-    rgba(12, 10, 22, 0.863)
-  );
+    #030303, #1f3d4e
+);
 
-  --imp-text-color: #c770f0;
+  --imp-text-color: #38b5fe;
 }
 
 .purple {
@@ -32,7 +30,7 @@ button:focus {
   width: 100%;
   height: 100%;
   z-index: 999999;
-  background-color: #0c0513;
+  background-color: #036daa;
   background-image: url(./Assets/pre.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -62,13 +60,13 @@ button:focus {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(178, 121, 216, 0.959);
+  background: #38b6ff;
   border-radius: 12px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(222, 130, 235, 0.911);
+  background: #52bcfa;
   border-radius: 12px;
 }
 
@@ -194,7 +192,7 @@ button:focus {
   height: 5px;
   width: 0;
   border-radius: 16px;
-  background: #c95bf5;
+  background: #38b6ff;
   bottom: 1px;
   left: 0;
   z-index: -1;
@@ -281,17 +279,17 @@ button:focus {
 }
 
 .main-name {
-  color: #cd5ff8;
+  color: #38b5fe;
 }
 
 .Typewriter__wrapper {
   font-size: 2.2em !important;
-  color: #be6adf !important;
+  color: #38b5fe !important;
   font-weight: 600 !important;
 }
 .Typewriter__cursor {
   font-size: 2.4em !important;
-  color: #b562d6 !important;
+  color: #0a58ca !important;
 }
 
 @media (max-width: 767px) {
@@ -371,7 +369,7 @@ button:focus {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: #68187a;
+  background: #0a58ca;
   transition: 0.5s;
   transform: scale(0.9);
   z-index: -1;
@@ -379,13 +377,13 @@ button:focus {
 
 .home-social-icons:hover::before {
   transform: scale(1.1);
-  box-shadow: 0 0 15px #801f95;
+  box-shadow: 0 0 15px #0a58ca;
 }
 
 .home-social-icons:hover {
-  color: #87209e;
-  box-shadow: 0 0 5px #87209e;
-  text-shadow: 0 0 2px #87209e;
+  color: #0a58ca;
+  box-shadow: 0 0 5px #0a58ca;
+  text-shadow: 0 0 2px #0a58ca;
 }
 
 .social-icons {
@@ -395,7 +393,7 @@ button:focus {
 }
 
 .icon-colour {
-  color: #700c86 !important;
+  color: #0a58ca !important;
 }
 
 /* --------- */
@@ -445,6 +443,7 @@ button:focus {
 /* Projects */
 /* --------- */
 .project-section {
+
   position: relative !important;
   padding-top: 150px !important;
   padding-bottom: 30px !important;
@@ -452,6 +451,7 @@ button:focus {
 }
 
 .project-card {
+  cursor: pointer;
   padding-top: 50px !important;
   padding-bottom: 50px !important;
   padding-left: 25px !important;
@@ -460,7 +460,7 @@ button:focus {
 }
 
 .project-card-view {
-  box-shadow: 0 4px 5px 3px rgba(119, 53, 136, 0.459) !important;
+  box-shadow: 0 4px 5px 3px  #1a76df !important;
   color: white !important;
   background-color: transparent !important;
   opacity: 0.9 !important;
@@ -470,7 +470,7 @@ button:focus {
 .project-card-view:hover {
   transform: scale(1.02) !important;
   overflow: hidden !important;
-  box-shadow: 0 4px 4px 5px rgba(129, 72, 144, 0.561) !important;
+  box-shadow: 0 4px 4px 5px #4f90db !important;
 }
 
 .blog-card {
@@ -518,14 +518,14 @@ button:focus {
 
 .btn-primary {
   color: #fff !important;
-  background-color: #623686 !important;
-  border-color: #623686 !important;
+  background-color: #0a58ca !important;
+  border-color: #0a58ca !important;
 }
 
 .btn-primary:hover {
   color: #fff !important;
-  background-color: #6d20c5d7 !important;
-  border-color: #6d20c5d7 !important;
+  background-color: #38b6ff !important;
+  border-color: #38b6ff !important;
 }
 .btn:focus {
   outline: none !important;
@@ -555,7 +555,7 @@ button:focus {
   margin: 15px !important;
   padding: 10px !important;
   opacity: 0.93 !important;
-  border: 1.7px solid rgba(200, 137, 230, 0.637) !important;
+  border: 1.7px solid #38b6ff !important;
   vertical-align: middle !important;
   text-align: center !important;
   border-radius: 5px !important;
@@ -574,7 +574,7 @@ button:focus {
 .tech-icons:hover {
   transform: scale(1.05) !important;
   overflow: hidden !important;
-  border: 2.2px solid rgba(197, 115, 230, 0.883) !important;
+  border: 2.2px solid #38b6ff !important;
 }
 .tech-icon-images {
   padding: 20px !important;
@@ -727,7 +727,7 @@ button:focus {
 
 .fork-btn-inner {
   line-height: 1.4em !important;
-  background-color: #934cce5e !important;
+  background-color: #0a58ca !important;
   padding: 0.25rem 1.1rem !important;
   vertical-align: middle !important;
   text-align: center !important;
@@ -735,8 +735,8 @@ button:focus {
 
 .fork-btn-inner:hover {
   transform: translateY(-2px) !important;
-  background-color: #a24dd386 !important;
-  border-color: #a24dd386 !important;
+  background-color: #38b6ff !important;
+  border-color: #38b6ff !important;
 }
 .fork-btn-inner::after {
   display: none !important;
