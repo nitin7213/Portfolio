@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 import bgremover from "../../Assets/Projects/bgremover.png";
+import kuizzer from "../../Assets/Projects/kuizzer.png";
 import testify from "../../Assets/Projects/testify.png";
 import crud from "../../Assets/Projects/crud.png";
 
@@ -21,7 +22,6 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={bgremover}
-              isBlog={false}
               title="BG Remover"
               description="A background remover website is a platform where users can upload images and easily remove the background from them."
               ghLink="https://github.com/bg-remover/Bg_remover"
@@ -32,11 +32,20 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={testify}
-              isBlog={false}
               title="Testify"
               description="A comprehensive educational platform designed to empower learners of all levels to acquire new skills, expand their knowledge, and achieve their academic and professional goals."
               ghLink="https://github.com/nitin7213/Testify"
               demoLink="https://testify-gray.vercel.app/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={kuizzer}
+              title="Kuizzer"
+              description="
+              Kuizzer is a helping educational website for younger generations. As Kuizzers, they aim to assist students by providing solutions to various online courses offered by platforms like NPTEL, Coursera, LinkedIn Learning, Codechef, and more."
+              liveLink="https://kuizzer.in/"
             />
           </Col>
         </Row>
@@ -53,7 +62,6 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={crud}
-              isBlog={false}
               title="CRUD Mongo"
               ghLink="https://github.com/nitin7213/CRUD"
             />
@@ -62,7 +70,6 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={crud}
-              isBlog={false}
               title="URL Shortner"
               ghLink="https://github.com/nitin7213/Url-shortner"
             />

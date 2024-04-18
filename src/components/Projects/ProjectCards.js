@@ -13,21 +13,25 @@ function ProjectCards(props) {
         <Card.Text style={{ textAlign: "center" }}>
           {props.description}
         </Card.Text>
-        <Button
-          variant="primary"
-          href={props.ghLink}
-          target="_blank"
-          style={{ marginLeft: "10px", marginBottom: "20px" }}
-        >
-          <BsGithub /> &nbsp;
-          {props.isBlog ? "Blog" : "GitHub"}
-        </Button>
+
+        {props.ghLink && (
+          <Button
+            variant="primary"
+            href={props.ghLink}
+            target="_blank"
+            style={{ marginLeft: "10px", marginBottom: "20px" }}
+          >
+            <BsGithub /> &nbsp;
+            {"GitHub"}
+          </Button>
+        )}
+
         {"\n"}
         {"\n"}
 
         {/* If the component contains Demo link and if it's not a Blog then, it will render the below component  */}
 
-        {!props.isBlog && props.demoLink && (
+        {props.demoLink && (
           <Button
             variant="primary"
             href={props.demoLink}
@@ -36,6 +40,20 @@ function ProjectCards(props) {
           >
             <CgWebsite /> &nbsp;
             {"Demo"}
+          </Button>
+        )}
+        {props.liveLink && (
+          <Button
+            variant="warning"
+            href={props.liveLink}
+            target="_blank"
+            style={{
+              marginLeft: "10px",
+              marginBottom: "20px",
+            }}
+          >
+            <CgWebsite /> &nbsp;
+            {"Live"}
           </Button>
         )}
       </Card.Body>
