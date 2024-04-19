@@ -57,6 +57,19 @@ function ProjectCards(props) {
           </Button>
         )}
       </Card.Body>
+      <button
+        className="last-updated-button"
+        style={{
+          margin: "right",
+          fontFamily: "Arial",
+          background: "transparent",
+          color: "white",
+          border: "none",
+          fontSize: "15px",
+        }}
+      >
+        Last Updated {props.lastUpdated}
+      </button>{" "}
     </Card>
   );
 }
