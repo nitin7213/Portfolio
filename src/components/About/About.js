@@ -56,20 +56,27 @@ function About() {
             style={{ justifyContent: "center", marginBottom: "20px" }}
           >
             <AiFillInstagram class="fs-1" />{" "}
-            <strong className="purple">Instagram</strong> Content Creator
+            <strong className="purple">Basketball</strong> Content Creator
           </h1>
 
-          <p style={{ textAlign: "justify", marginBottom: "20px" }}>
+          <p
+            style={{
+              justifyContent: "center",
+              textAlign: "justify",
+              marginBottom: "20px",
+            }}
+          >
             Apart from coding, this is my{" "}
             <span className="purple">Instagram </span>
             channel <span className="purple"> @hoopinshark </span>I post
             Basketball related content. Some of my viral contents:
           </p>
-
           <div className="instagram-container">
             <Instagram url="https://www.instagram.com/reel/C3uelmRxvmW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" />
             <Instagram url="https://www.instagram.com/reel/C1XHwKKiSmq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" />
             <Instagram url="https://www.instagram.com/reel/C4pFvs6C4on/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" />
+            <Instagram url="https://www.instagram.com/reel/C4miY9ECMy5/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" />
+            <Instagram url="https://www.instagram.com/reel/C5pgY6GCyb0/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" />
             <Instagram url="https://www.instagram.com/reel/C5VUbLTrb4Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" />
           </div>
         </Row>
@@ -77,8 +84,9 @@ function About() {
       <style>{`
         .instagram-container {
           display: grid;
+          margin-top:30px;
           grid-template-columns: repeat(auto-fit, minmax(250px, 5fr)); /* Responsive grid layout */
-          gap: 20px; /* Gap between grid items */
+          gap: 100px; /* Gap between grid items */
           justify-items: center; /* Center items horizontally */
           justify-content: center; /* Center the grid items horizontally */
           margin-bottom: 20px;

@@ -28,10 +28,13 @@ function AboutCard() {
             </li>
           </ul>
 
-          <p style={{ color: "rgb(155 126 172)" }}>
-            "I love consistency, start from loved work!"{" "}
+          <p className="purple">
+            "Put <span style={{ color: "white" }}> consistency </span>in work,
+            and see the <span style={{ color: "white" }}>MAGIC!"</span>{" "}
           </p>
-          <footer className="blockquote-footer">Nitin</footer>
+          <footer className="blockquote-footer" style={{ color: "white" }}>
+            NITIN
+          </footer>
         </blockquote>
       </Card.Body>
     </Card>
