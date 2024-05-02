@@ -70,6 +70,11 @@ function ProjectCards(props) {
       >
         Last Updated {props.lastUpdated}
       </button>{" "}
+      <style>{`
+        .card-img {
+          user-select:none;
+        }
+      `}</style>
     </Card>
   );
 }
