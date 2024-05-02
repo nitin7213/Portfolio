@@ -55,7 +55,7 @@ function About() {
             className="project-heading"
             style={{ justifyContent: "center", marginBottom: "20px" }}
           >
-            <AiFillInstagram class="fs-1" />{" "}
+            <AiFillInstagram className="fs-1" />{" "}
             <strong className="purple">Basketball</strong> Content Creator
           </h1>
 
