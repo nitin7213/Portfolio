@@ -29,8 +29,8 @@ function AboutCard() {
           </ul>
 
           <p className="purple">
-            "Put <span style={{ color: "white" }}> consistency </span>in work,
-            and see the <span style={{ color: "white" }}>MAGIC!"</span>{" "}
+            "Enjoy <span style={{ color: "white" }}> happiness </span>in little
+            things!{" "}
           </p>
           <footer className="blockquote-footer" style={{ color: "white" }}>
             NITIN
