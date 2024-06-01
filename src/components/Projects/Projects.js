@@ -8,6 +8,7 @@ import testify from "../../Assets/Projects/testify.png";
 import crud from "../../Assets/Projects/crud.png";
 import url from "../../Assets/Projects/url.png";
 import stripe from "../../Assets/Projects/stripe.png";
+import graphql from "../../Assets/Projects/graphql.png";
 
 function Projects() {
   return (
@@ -88,6 +89,15 @@ function Projects() {
               title="Stripe Payment Gateway"
               ghLink="https://github.com/nitin7213/stripe"
               lastUpdated="15-04-2024"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={graphql}
+              title="Graph Ql"
+              ghLink="https://github.com/nitin7213/GraphQl"
+              lastUpdated="28-05-2024"
             />
           </Col>
         </Row>
