@@ -1,0 +1,121 @@
+const projectDetails = [
+  {
+    id: "1",
+    category: "major",
+    title: "BG Remover",
+    imgPath: "bgremover.png",
+    about: "A background remover website",
+    description:
+      "A background remover website is a platform where users can upload images and easily remove the background from them.",
+    ghLink: "https://github.com/deadlockerz/Bg_remover",
+    demoLink: "https://bg-remover-3t5s.vercel.app/",
+    lastUpdated: "10-04-2024",
+    technologies: ["React", "Node.js", "MongoDB", "Express"],
+    status: "COMPLETED",
+    ideology:
+      "BG Remover is built to simplify the process of removing backgrounds from images. The project's ideology centers around empowering users, whether they're designers, photographers, or social media enthusiasts, to effortlessly enhance their images and unleash their creativity.",
+    contributors: [
+      { name: "ME", githubUsername: "nitin7213" },
+      { name: "GOURAV VISHWAKARMA", githubUsername: "gourav4ojha" },
+    ],
+  },
+  {
+    id: "2",
+    category: "major",
+    title: "Testify",
+    imgPath: "testify.png",
+    about: "Mern Ed-tech Website",
+    description:
+      "A comprehensive educational platform designed to empower learners of all levels to acquire new skills, expand their knowledge, and achieve their academic and professional goals.",
+    ghLink: "https://github.com/deadlockerz/Testify",
+    demoLink: "https://testify-gray.vercel.app/",
+    lastUpdated: "12-02-2024",
+    technologies: ["React", "Node.js", "MongoDB", "Express"],
+    status: "ONGOING",
+    ideology:
+      "Testify embodies the belief that education should be accessible to everyone, regardless of their background or circumstances. By providing a diverse range of courses, interactive learning materials, and personalized experiences, Testify aims to inspire and empower learners worldwide to pursue their passions and achieve their goals.",
+    contributors: [
+      { name: "ME", githubUsername: "nitin7213" },
+      { name: "GOURAV VISHWAKARMA", githubUsername: "gourav4ojha" },
+      { name: "VAASU GOYAL", githubUsername: "Vaasu-Goyal" },
+    ],
+  },
+  {
+    id: "3",
+    category: "major",
+    title: "Kuizzer",
+    imgPath: "kuizzer.png",
+    about: "Wordpress Ed-tech Website",
+    description:
+      "Kuizzer is a helping educational website for younger generations. As Kuizzers, they aim to assist students by providing solutions to various online courses offered by platforms like NPTEL, Coursera, LinkedIn Learning, Codechef, and more.",
+    liveLink: "https://kuizzer.in/",
+    lastUpdated: "31-08-2023",
+    technologies: ["Wordpress", "Hosting"],
+    status: "COMPLETED",
+    ideology:
+      "Kuizzer is driven by the mission to support and guide the younger generation in their educational journey. By aggregating resources from various online learning platforms, Kuizzer seeks to simplify the process of accessing high-quality educational content and empower students to excel in their studies.",
+    contributors: [{ name: "ME", githubUsername: "nitin7213" }],
+  },
+  {
+    id: "4",
+    category: "minor",
+    title: "CRUD Mongo",
+    imgPath: "crud.png",
+    about: "Create, Read, Update, Delete in MongoDB",
+    description: "Description for CRUD Mongo project.",
+    ghLink: "https://github.com/nitin7213/CRUD",
+    lastUpdated: "30-03-2024",
+    technologies: ["React", "Node.js", "Express", "MongoDB"],
+    status: "COMPLETED",
+    ideology:
+      "CRUD Mongo simplifies database operations by providing a user-friendly interface for managing data stored in MongoDB. The project aims to streamline the process of creating, reading, updating, and deleting records, enhancing productivity for developers and administrators.",
+    contributors: [{ name: "ME", githubUsername: "nitin7213" }],
+  },
+  {
+    id: "5",
+    category: "minor",
+    title: "URL Shortner",
+    imgPath: "url.png",
+    about: "Url shortner with help of MongoDB",
+    description: "Description for URL Shortner project.",
+    ghLink: "https://github.com/nitin7213/Url-shortner",
+    lastUpdated: "25-03-2024",
+    technologies: ["Node.js", "Express", "MongoDB"],
+    status: "COMPLETED",
+    ideology:
+      "URL Shortner provides a convenient solution for shortening long URLs into concise, shareable links. By leveraging MongoDB for storage, the project ensures scalability and reliability, catering to users' needs for efficient link management in various applications.",
+    contributors: [{ name: "ME", githubUsername: "nitin7213" }],
+  },
+  {
+    id: "6",
+    category: "minor",
+    title: "Stripe Payment Gateway",
+    imgPath: "stripe.png",
+    about: "Connecting Stripe Payment Gateway",
+    description: "Description for Stripe Payment Gateway project.",
+    ghLink: "https://github.com/nitin7213/stripe",
+    lastUpdated: "15-04-2024",
+    technologies: ["React", "Node.js", "Stripe API"],
+    status: "COMPLETED",
+    ideology:
+      "Stripe Payment Gateway facilitates seamless online transactions by integrating the Stripe API with web applications. The project aims to enhance user experience and enable secure, efficient payment processing for businesses and consumers alike.",
+    contributors: [{ name: "ME", githubUsername: "nitin7213" }],
+  },
+  {
+    id: "7",
+    category: "minor",
+    title: "Graph Ql",
+    imgPath: "graphql.png",
+    about: "Using Graph Query Language",
+    description: "Description for Graph Ql project.",
+    ghLink: "https://github.com/nitin7213/GraphQl",
+    lastUpdated: "28-05-2024",
+    technologies: ["React", "GraphQL", "Apollo"],
+    status: "COMPLETED",
+    ideology:
+      "Graph Ql leverages the power of GraphQL to optimize data fetching and management in web applications. By utilizing Apollo Client and React, the project enhances performance and flexibility, enabling developers to build efficient, scalable applications with ease.",
+    contributors: [{ name: "ME", githubUsername: "nitin7213" }],
+  },
+];
+
+export default projectDetails;

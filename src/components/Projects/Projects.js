@@ -2,13 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
-import bgremover from "../../Assets/Projects/bgremover.png";
-import kuizzer from "../../Assets/Projects/kuizzer.png";
-import testify from "../../Assets/Projects/testify.png";
-import crud from "../../Assets/Projects/crud.png";
-import url from "../../Assets/Projects/url.png";
-import stripe from "../../Assets/Projects/stripe.png";
-import graphql from "../../Assets/Projects/graphql.png";
+import projectDetails from "../../Assets/Api/projectDetails"; // Assuming the file containing projectDetails is in the same directory
 
 function Projects() {
   return (
@@ -22,38 +16,22 @@ function Projects() {
           Here are a few projects I've worked on recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={bgremover}
-              title="BG Remover"
-              description="A background remover website is a platform where users can upload images and easily remove the background from them."
-              ghLink="https://github.com/deadlockerz/Bg_remover"
-              demoLink="https://bg-remover-3t5s.vercel.app/"
-              lastUpdated="10-04-2024"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={testify}
-              title="Testify"
-              description="A comprehensive educational platform designed to empower learners of all levels to acquire new skills, expand their knowledge, and achieve their academic and professional goals."
-              ghLink="https://github.com/deadlockerz/Testify"
-              demoLink="https://testify-gray.vercel.app/"
-              lastUpdated="12-02-2024"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={kuizzer}
-              title="Kuizzer"
-              description="
-              Kuizzer is a helping educational website for younger generations. As Kuizzers, they aim to assist students by providing solutions to various online courses offered by platforms like NPTEL, Coursera, LinkedIn Learning, Codechef, and more."
-              liveLink="https://kuizzer.in/"
-              lastUpdated="31-08-2023"
-            />
-          </Col>
+          {projectDetails
+            .filter((project) => project.category === "major")
+            .map((project) => (
+              <Col md={4} className="project-card" key={project.id}>
+                <ProjectCard
+                  id={project.id}
+                  imgPath={require(`../../Assets/Projects/${project.imgPath}`)}
+                  title={project.title}
+                  description={project.about}
+                  ghLink={project.ghLink}
+                  demoLink={project.demoLink}
+                  lastUpdated={project.lastUpdated}
+                  liveLink={project.liveLink}
+                />
+              </Col>
+            ))}
         </Row>
       </Container>
 
@@ -65,41 +43,20 @@ function Projects() {
           These are some minor works which I've worked on.
         </p>
         <Row style={{ justifyContent: "center" }}>
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={crud}
-              title="CRUD Mongo"
-              ghLink="https://github.com/nitin7213/CRUD"
-              lastUpdated="30-03-2024"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={url}
-              title="URL Shortner"
-              ghLink="https://github.com/nitin7213/Url-shortner"
-              lastUpdated="25-03-2024"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={stripe}
-              title="Stripe Payment Gateway"
-              ghLink="https://github.com/nitin7213/stripe"
-              lastUpdated="15-04-2024"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={graphql}
-              title="Graph Ql"
-              ghLink="https://github.com/nitin7213/GraphQl"
-              lastUpdated="28-05-2024"
-            />
-          </Col>
+          {projectDetails
+            .filter((project) => project.category === "minor")
+            .map((project) => (
+              <Col md={4} className="project-card" key={project.id}>
+                <ProjectCard
+                  id={project.id}
+                  imgPath={require(`../../Assets/Projects/${project.imgPath}`)}
+                  title={project.title}
+                  description={project.description}
+                  ghLink={project.ghLink}
+                  lastUpdated={project.lastUpdated}
+                />
+              </Col>
+            ))}
         </Row>
       </Container>
     </Container>
