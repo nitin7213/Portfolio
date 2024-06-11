@@ -5,6 +5,7 @@ import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 import Button from "react-bootstrap/Button";
 import projectDetails from "../../../Assets/Api/projectDetails";
+import { Link } from "react-router-dom";
 
 function ProjectPage() {
   const { id } = useParams();
@@ -15,14 +16,18 @@ function ProjectPage() {
   // If project is not found, return a not found message
   if (!project) {
     return (
-      <Container fluid className="project-section">
-        <Container>
-          <h1 className="project-heading">Project Not Found</h1>
-          <p style={{ color: "white" }}>
-            The project you're looking for does not exist.
-          </p>
+      <div className="d-flex flex-column vh-100">
+        <Container fluid className="project-section">
+          <Container>
+            <div className="project-header">
+              <h1 className="project-heading">Project Not Found</h1>
+              <p style={{ color: "white" }}>
+                The project you're looking for does not exist.
+              </p>
+            </div>
+          </Container>
         </Container>
-      </Container>
+      </div>
     );
   }
 
@@ -35,8 +40,29 @@ function ProjectPage() {
   );
 
   return (
-    <div>
+    <div className="d-flex flex-column vh-100">
       <Container fluid className="project-section">
+        <Container>
+          <nav aria-label="breadcrumb">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item ">
+                <Link
+                  to="/project"
+                  style={{ color: "#cdc5c5", textDecoration: "none" }}
+                >
+                  Projects
+                </Link>
+              </li>
+              <li
+                className="breadcrumb-item active"
+                style={{ color: "white" }}
+                aria-current="page"
+              >
+                {project.title}
+              </li>
+            </ol>
+          </nav>
+        </Container>
         <Container>
           <div className="project-header">
             <h1 className="project-heading">{project.title}</h1>
@@ -142,6 +168,7 @@ function ProjectPage() {
         .button-group {
           display: flex;
           justify-content: center;
+         
           flex-wrap: wrap;
           padding: 10px;
         }
@@ -171,8 +198,7 @@ function ProjectPage() {
         
         a:hover {
           color: #00a0ff !important; /* Change color on hover */
-        }
-        
+        } 
       `}</style>
     </div>
   );

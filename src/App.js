@@ -1,18 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Preloader from "../src/components/Pre";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home/Home";
-import About from "./components/About/About";
-import Projects from "./components/Projects/Projects";
+import Preloader from "./components/Pre";
 import Footer from "./components/Footer";
-import Resume from "./components/Resume/ResumeNew";
-import ProjectPage from "./components/Projects/ProjectPage/ProjectPage";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import Navbar from "./components/Navbar";
+import { Outlet } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import "./style.css";
 import "./App.css";
@@ -30,22 +20,15 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <div>
+      <ScrollToTop />
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Navbar />
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/project" element={<Projects />} />
-          <Route path="/project/projectpage/:id" element={<ProjectPage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        <Outlet />
         <Footer />
       </div>
-    </Router>
+    </div>
   );
 }
 
