@@ -50,7 +50,7 @@ function ProjectPage() {
                   to="/project"
                   style={{ color: "#cdc5c5", textDecoration: "none" }}
                 >
-                  Projects
+                  Projects /
                 </Link>
               </li>
               <li
