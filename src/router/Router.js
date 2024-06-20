@@ -6,6 +6,7 @@ import NotFound from "../components/NotFound";
 import Resume from "../components/Resume/ResumeNew";
 import { Learning } from "../components/Learning/Learning";
 import ProjectPage from "../components/Projects/ProjectPage/ProjectPage";
+import LearningPage from "../components/Learning/LearningPage/LearningPage";
 import App from "../App";
 
 const Router = () => {
@@ -33,6 +34,10 @@ const Router = () => {
         {
           path: "/learning",
           element: <Learning />,
+        },
+        {
+          path: "/learning/learningpage/:id",
+          element: <LearningPage />,
         },
         {
           path: "/resume",

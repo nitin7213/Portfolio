@@ -40,13 +40,15 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
-            <Nav.Item>
-              <Nav.Link as={Link} to="/about">
-                <AiOutlineUser style={{ marginBottom: "2px" }} />
-                <span className="d-md-none"> </span>
-                <span className="d-none d-md-inline"> About</span>
-              </Nav.Link>
-            </Nav.Item>
+            <span className="d-none d-md-inline">
+              <Nav.Item>
+                <Nav.Link as={Link} to="/about">
+                  <AiOutlineUser style={{ marginBottom: "2px" }} />
+                  <span className="d-md-none"> </span>
+                  <span className="d-none d-md-inline"> About</span>
+                </Nav.Link>
+              </Nav.Item>
+            </span>
 
             <Nav.Item>
               <Nav.Link as={Link} to="/project">

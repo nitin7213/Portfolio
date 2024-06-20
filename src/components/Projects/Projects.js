@@ -13,7 +13,7 @@ function Projects() {
           My<strong className="purple"> Major </strong>Projects
         </h1>
         <p style={{ color: "white" }}>
-          Here are a few projects I've worked on recently.
+          Here are a few projects I've worked on recently
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           {projectDetails
@@ -40,7 +40,7 @@ function Projects() {
           Some<strong className="purple"> Minor </strong>learnings
         </h1>
         <p style={{ color: "white" }}>
-          These are some minor works which I've worked on.
+          These are some minor works which I've worked on
         </p>
         <Row style={{ justifyContent: "center" }}>
           {projectDetails
