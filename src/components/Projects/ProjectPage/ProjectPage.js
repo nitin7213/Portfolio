@@ -16,18 +16,16 @@ function ProjectPage() {
   // If project is not found, return a not found message
   if (!project) {
     return (
-      <div className="d-flex flex-column vh-100">
-        <Container fluid className="project-section">
-          <Container>
-            <div className="project-header">
-              <h1 className="project-heading">Project Not Found</h1>
-              <p style={{ color: "white" }}>
-                The project you're looking for does not exist.
-              </p>
-            </div>
-          </Container>
+      <Container fluid className="project-section vh-100">
+        <Container>
+          <div className="project-header">
+            <h1 className="project-heading">Project Not Found</h1>
+            <p style={{ color: "white" }}>
+              The project you're looking for does not exist.
+            </p>
+          </div>
         </Container>
-      </div>
+      </Container>
     );
   }
 
@@ -40,114 +38,120 @@ function ProjectPage() {
   );
 
   return (
-    <div className="d-flex flex-column vh-100">
-      <Container fluid className="project-section">
-        <Container>
-          <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item ">
-                <Link
-                  to="/project"
-                  style={{ color: "#cdc5c5", textDecoration: "none" }}
-                >
-                  Projects /
-                </Link>
-              </li>
-              <li
-                className="breadcrumb-item active"
-                style={{ color: "white" }}
-                aria-current="page"
+    <Container fluid className="project-section mb-5">
+      {" "}
+      {/* Added mb-5 for margin bottom */}
+      <Container>
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item ">
+              <Link
+                to="/project"
+                style={{ color: "#cdc5c5", textDecoration: "none" }}
               >
-                {project.title}
-              </li>
-            </ol>
-          </nav>
-        </Container>
-        <Container>
-          <div className="project-header">
-            <h1 className="project-heading">{project.title}</h1>
-            <p className="project-updated">
-              <strong className="purple">Last Updated: </strong>
-              {project.lastUpdated}
-            </p>
-          </div>
-          <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-            <Col md={12}>
-              <Row>
-                <Col md={8} xs={12}>
-                  <p style={{ color: "white", textAlign: "left" }}>
-                    <strong className="purple">STATUS: </strong>
-                    {project.status}
-                  </p>
-                  <p style={{ color: "white", textAlign: "left" }}>
-                    <strong className="purple">DESCRIPTION </strong> <br />
-                    {project.description}
-                  </p>{" "}
-                  <p style={{ color: "white", textAlign: "left" }}>
-                    <strong className="purple">PURPOSE</strong> <br />
-                    {project.ideology}
-                  </p>
-                  <p style={{ color: "white", textAlign: "left" }}>
-                    <strong className="purple">TECHNOLOGIES</strong> <br />
-                    {project.technologies.join(", ")}
-                  </p>
-                  <p style={{ color: "white", textAlign: "left" }}>
-                    <strong className="purple">CONTRIBUTORS</strong> <br />
-                    {project.contributors.map((contributor) => (
-                      <span key={contributor.githubUsername}>
-                        <a
-                          href={`https://github.com/${contributor.githubUsername}`}
-                          style={{ color: "white", textDecoration: "none" }}
-                        >
-                          {contributor.name}
-                        </a>
-                        {project.contributors.indexOf(contributor) !==
-                          project.contributors.length - 1 && ", "}
-                      </span>
-                    ))}
-                  </p>
-                  <div className="button-group">
-                    {project.ghLink && (
-                      <Button
-                        variant="primary"
-                        as="a" // Use "as" prop to render as anchor tag
-                        href={project.ghLink}
-                        target="_blank"
-                        style={{ margin: "10px" }}
+                Projects /
+              </Link>
+            </li>
+            <li
+              className="breadcrumb-item active"
+              style={{ color: "white" }}
+              aria-current="page"
+            >
+              {project.title}
+            </li>
+          </ol>
+        </nav>
+      </Container>
+      <Container>
+        <div className="project-header">
+          <h1 className="project-heading">{project.title}</h1>
+          <p className="project-updated">
+            <strong className="purple">Last Updated: </strong>
+            {project.lastUpdated}
+          </p>
+        </div>
+        <Row
+          style={{
+            justifyContent: "center",
+            paddingBottom: "10px",
+            marginBottom: "10vh",
+          }}
+        >
+          <Col md={12}>
+            <Row>
+              <Col md={8} xs={12}>
+                <p style={{ color: "white", textAlign: "left" }}>
+                  <strong className="purple">STATUS: </strong>
+                  {project.status}
+                </p>
+                <p style={{ color: "white", textAlign: "left" }}>
+                  <strong className="purple">DESCRIPTION </strong> <br />
+                  {project.description}
+                </p>{" "}
+                <p style={{ color: "white", textAlign: "left" }}>
+                  <strong className="purple">PURPOSE</strong> <br />
+                  {project.ideology}
+                </p>
+                <p style={{ color: "white", textAlign: "left" }}>
+                  <strong className="purple">TECHNOLOGIES</strong> <br />
+                  {project.technologies.join(", ")}
+                </p>
+                <p style={{ color: "white", textAlign: "left" }}>
+                  <strong className="purple">CONTRIBUTORS</strong> <br />
+                  {project.contributors.map((contributor) => (
+                    <span key={contributor.githubUsername}>
+                      <a
+                        href={`https://github.com/${contributor.githubUsername}`}
+                        style={{ color: "white", textDecoration: "none" }}
                       >
-                        <BsGithub /> &nbsp; GitHub
-                      </Button>
-                    )}
-                    {project.demoLink && (
-                      <Button
-                        variant="primary"
-                        as="a" // Use "as" prop to render as anchor tag
-                        href={project.demoLink}
-                        target="_blank"
-                        style={{ margin: "10px" }}
-                      >
-                        <CgWebsite /> &nbsp; Demo
-                      </Button>
-                    )}
-                    {project.liveLink && (
-                      <Button
-                        variant="warning"
-                        href={project.liveLink}
-                        target="_blank"
-                        style={{ margin: "10px" }}
-                      >
-                        <CgWebsite /> &nbsp; Live
-                      </Button>
-                    )}
-                  </div>
-                </Col>
-                <Col md={4} xs={12} className="hero-img">
-                  {imgsrc}
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
+                        {contributor.name}
+                      </a>
+                      {project.contributors.indexOf(contributor) !==
+                        project.contributors.length - 1 && ", "}
+                    </span>
+                  ))}
+                </p>
+                <div className="button-group">
+                  {project.ghLink && (
+                    <Button
+                      variant="primary"
+                      as="a" // Use "as" prop to render as anchor tag
+                      href={project.ghLink}
+                      target="_blank"
+                      style={{ margin: "10px" }}
+                    >
+                      <BsGithub /> &nbsp; GitHub
+                    </Button>
+                  )}
+                  {project.demoLink && (
+                    <Button
+                      variant="primary"
+                      as="a" // Use "as" prop to render as anchor tag
+                      href={project.demoLink}
+                      target="_blank"
+                      style={{ margin: "10px" }}
+                    >
+                      <CgWebsite /> &nbsp; Demo
+                    </Button>
+                  )}
+                  {project.liveLink && (
+                    <Button
+                      variant="warning"
+                      href={project.liveLink}
+                      target="_blank"
+                      style={{ margin: "10px" }}
+                    >
+                      <CgWebsite /> &nbsp; Live
+                    </Button>
+                  )}
+                </div>
+              </Col>
+              <Col md={4} xs={12} className="hero-img">
+                {imgsrc}
+              </Col>
+            </Row>
+          </Col>
+        </Row>
       </Container>
       <style>{`
         .project-header {
@@ -168,7 +172,6 @@ function ProjectPage() {
         .button-group {
           display: flex;
           justify-content: center;
-         
           flex-wrap: wrap;
           padding: 10px;
         }
@@ -200,7 +203,7 @@ function ProjectPage() {
           color: #00a0ff !important; /* Change color on hover */
         } 
       `}</style>
-    </div>
+    </Container>
   );
 }
 

@@ -9,7 +9,7 @@ function LearningCards(props) {
   return (
     <Card className="project-card-view">
       <Link
-        to={`/learning/learningpage/${props.id}`}
+        to={`/learning/learningIdx/${props.id}`}
         style={{ textDecoration: "none", color: "inherit" }}
       >
         <Card.Img variant="top" src={props.imgPath} alt="card-img" />

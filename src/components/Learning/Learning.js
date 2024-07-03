@@ -7,7 +7,7 @@ import learningDetails from "../../Assets/Api/learningDetails";
 export const Learning = () => {
   return (
     <div>
-      <Container fluid className="project-section vh-100">
+      <Container fluid className="project-section">
         <Particle />
         <Container>
           <h1 className="project-heading">
@@ -16,7 +16,7 @@ export const Learning = () => {
           <p style={{ color: "white" }}>
             Here are my few learnings I've worked on recently
           </p>
-          <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          <Row style={{ justifyContent: "center", paddingBottom: "20vh" }}>
             {learningDetails.map((project) => (
               <Col md={4} className="project-card" key={project.id}>
                 <LearningCards
