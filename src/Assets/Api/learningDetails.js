@@ -1,7 +1,7 @@
 const learningDetails = [
   {
     id: "1",
-    title: "Node Js",
+    title: "node-js",
     imgPath: "node.jpeg",
     description:
       "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It's used for building fast and scalable server-side applications.",
@@ -10,7 +10,7 @@ const learningDetails = [
   },
   {
     id: "2",
-    title: "React Js",
+    title: "react-js",
     imgPath: "react.png",
     description:
       "React.js is a JavaScript library for building user interfaces, primarily for single-page applications. It allows developers to create large web applications that can update and render efficiently in response to data changes.",

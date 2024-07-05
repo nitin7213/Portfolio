@@ -1,155 +1,107 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
-import { CgWebsite } from "react-icons/cg";
-import { BsGithub } from "react-icons/bs";
-import Button from "react-bootstrap/Button";
-import projectDetails from "../../../Assets/Api/projectDetails";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { Container, Row } from "react-bootstrap";
+import axios from "axios";
+import learningDetails from "../../../Assets/Api/learningDetails";
 
 function LearningPage() {
-  const { id } = useParams();
+  const { id, fileName } = useParams();
+  const [fileContent, setFileContent] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Find the project with the matching ID
-  const project = projectDetails.find((project) => project.id === id);
+  const learning = learningDetails.find((learning) => learning.id === id);
 
-  // If project is not found, return a not found message
-  if (!project) {
-    return (
-      <div className="d-flex flex-column vh-100">
-        <Container fluid className="project-section">
-          <Container>
-            <div className="project-header">
-              <h1 className="project-heading">Project Not Found</h1>
-              <p style={{ color: "white" }}>
-                The project you're looking for does not exist.
-              </p>
-            </div>
-          </Container>
-        </Container>
-      </div>
-    );
+  useEffect(() => {
+    if (!learning) {
+      setError("Learning project not found");
+      setLoading(false);
+      return;
+    }
+
+    const fetchFileContent = async () => {
+      try {
+        const response = await axios.get(
+          `https://api.github.com/repos/nitin7213/${learning.title}/contents/${fileName}`,
+          {
+            headers: {
+              Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
+            },
+          }
+        );
+        const content = atob(response.data.content);
+        setFileContent(content);
+      } catch (err) {
+        setError("Error fetching file content");
+        console.error("Error fetching file content:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFileContent();
+  }, [learning, fileName]);
+
+  if (loading) {
+    return <div>Loading...</div>;
   }
 
-  const imgsrc = (
-    <img
-      src={require(`../../../Assets/Projects/${project.imgPath}`)}
-      alt="img"
-      className="project-image"
-    />
-  );
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
-    <div className="d-flex flex-column vh-100">
-      <Container fluid className="project-section">
-        <Container>
-          <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item ">
-                <Link
-                  to="/project"
-                  style={{ color: "#cdc5c5", textDecoration: "none" }}
-                >
-                  Projects /
-                </Link>
-              </li>
-              <li
-                className="breadcrumb-item active"
-                style={{ color: "white" }}
-                aria-current="page"
+    <Container fluid className="project-section">
+      <Container>
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item ">
+              <Link
+                to="/learning"
+                style={{ color: "#cdc5c5", textDecoration: "none" }}
               >
-                {project.title}
-              </li>
-            </ol>
-          </nav>
-        </Container>
-        <Container>
-          <div className="project-header">
-            <h1 className="project-heading">{project.title}</h1>
-            <p className="project-updated">
-              <strong className="purple">Last Updated: </strong>
-              {project.lastUpdated}
-            </p>
-          </div>
-          <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-            <Col md={12}>
-              <Row>
-                <Col md={8} xs={12}>
-                  <p style={{ color: "white", textAlign: "left" }}>
-                    <strong className="purple">STATUS: </strong>
-                    {project.status}
-                  </p>
-                  <p style={{ color: "white", textAlign: "left" }}>
-                    <strong className="purple">DESCRIPTION </strong> <br />
-                    {project.description}
-                  </p>{" "}
-                  <p style={{ color: "white", textAlign: "left" }}>
-                    <strong className="purple">PURPOSE</strong> <br />
-                    {project.ideology}
-                  </p>
-                  <p style={{ color: "white", textAlign: "left" }}>
-                    <strong className="purple">TECHNOLOGIES</strong> <br />
-                    {project.technologies.join(", ")}
-                  </p>
-                  <p style={{ color: "white", textAlign: "left" }}>
-                    <strong className="purple">CONTRIBUTORS</strong> <br />
-                    {project.contributors.map((contributor) => (
-                      <span key={contributor.githubUsername}>
-                        <a
-                          href={`https://github.com/${contributor.githubUsername}`}
-                          style={{ color: "white", textDecoration: "none" }}
-                        >
-                          {contributor.name}
-                        </a>
-                        {project.contributors.indexOf(contributor) !==
-                          project.contributors.length - 1 && ", "}
-                      </span>
-                    ))}
-                  </p>
-                  <div className="button-group">
-                    {project.ghLink && (
-                      <Button
-                        variant="primary"
-                        as="a" // Use "as" prop to render as anchor tag
-                        href={project.ghLink}
-                        target="_blank"
-                        style={{ margin: "10px" }}
-                      >
-                        <BsGithub /> &nbsp; GitHub
-                      </Button>
-                    )}
-                    {project.demoLink && (
-                      <Button
-                        variant="primary"
-                        as="a" // Use "as" prop to render as anchor tag
-                        href={project.demoLink}
-                        target="_blank"
-                        style={{ margin: "10px" }}
-                      >
-                        <CgWebsite /> &nbsp; Demo
-                      </Button>
-                    )}
-                    {project.liveLink && (
-                      <Button
-                        variant="warning"
-                        href={project.liveLink}
-                        target="_blank"
-                        style={{ margin: "10px" }}
-                      >
-                        <CgWebsite /> &nbsp; Live
-                      </Button>
-                    )}
-                  </div>
-                </Col>
-                <Col md={4} xs={12} className="hero-img">
-                  {imgsrc}
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
-      </Container>
+                Learnings /
+              </Link>
+            </li>
+            <li
+              className="breadcrumb-item active"
+              style={{ color: "white" }}
+              aria-current="page"
+            >
+              <Link
+                to={`/learning/learningIdx/${id}`}
+                style={{ color: "#cdc5c5", textDecoration: "none" }}
+              >
+                {learning.title}/{" "}
+              </Link>
+            </li>
+            <li
+              className="breadcrumb-item active"
+              style={{ color: "white" }}
+              aria-current="page"
+            >
+              {fileName}
+            </li>
+          </ol>
+        </nav>
+      </Container>{" "}
+      <Container>
+        <div className="project-header">
+          <h1 className="project-heading">{fileName}</h1>
+        </div>{" "}
+        <Row style={{ marginBottom: "20vh" }}>
+          <pre style={{ color: "white", textAlign: "left" }}>{fileContent}</pre>
+        </Row>
+      </Container>{" "}
       <style>{`
+        .breadcrumb-item a {
+          transition: color 0.3s ease;
+        }
+
+        .breadcrumb-item a:hover {
+          color: #00a0ff !important;
+        }
+
         .project-header {
           display: flex;
           justify-content: space-between;
@@ -157,50 +109,34 @@ function LearningPage() {
           flex-wrap: wrap;
           margin-bottom: 20px;
         }
+        
         .project-heading {
           margin: 0;
           color: white;
         }
-        .project-updated {
-          margin: 0;
-          color: white;
-        }
-        .button-group {
-          display: flex;
-          justify-content: center;
-         
-          flex-wrap: wrap;
-          padding: 10px;
-        }
-        .project-image {
-          height: auto; /* Maintain the aspect ratio */
-          width: 100%; /* Default size */
-        }
-        
-        @media (min-width: 768px) {
-          .project-image {
-            width: 100%; /* Adjust the size for medium screens */
+
+        @media (max-width: 768px) {
+          .project-header {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+
+          .project-heading {
+            margin-bottom: 10px;
           }
         }
-        
-        @media (min-width: 1024px) {
-          .project-image {
-            width: 100%; /* Adjust the size for large screens */
+
+        @media (max-width: 576px) {
+          .project-section {
+            padding: 10px;
+          }
+
+          .breadcrumb {
+            font-size: 14px;
           }
         }
-        .row {
-          align-items: center;
-        }
-        
-        a {
-          transition: color 0.3s ease; /* Add transition effect */
-        }
-        
-        a:hover {
-          color: #00a0ff !important; /* Change color on hover */
-        } 
       `}</style>
-    </div>
+    </Container>
   );
 }
 

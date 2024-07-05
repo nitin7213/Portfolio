@@ -42,7 +42,7 @@ const Router = () => {
           element: <LearningIdx />,
         },
         {
-          path: "/learning/learningpage/:id",
+          path: "/learningpage/:id/:fileName",
           element: <LearningPage />,
         },
         {

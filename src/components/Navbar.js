@@ -61,7 +61,7 @@ function NavBar() {
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link as={Link} to="/Learning">
+              <Nav.Link as={Link} to="/learning">
                 <AiOutlineBook style={{ marginBottom: "2px" }} />
                 <span className="d-md-none"> </span>
                 <span className="d-none d-md-inline"> Learning</span>
