@@ -25,12 +25,12 @@ const LearningIdx = () => {
     const fetchGitContent = async () => {
       try {
         const response = await axios.get(
-          `https://api.github.com/repos/nitin7213/${learning.title}/contents/`,
-          {
-            headers: {
-              Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
-            },
-          }
+          `https://api.github.com/repos/nitin7213/${learning.title}/contents/`
+          // {
+          //   headers: {
+          //     Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
+          //   },
+          // }
         );
         const jsFiles = response.data
           .filter((file) => file.name.endsWith(".js"))

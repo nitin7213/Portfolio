@@ -22,12 +22,12 @@ function LearningPage() {
     const fetchFileContent = async () => {
       try {
         const response = await axios.get(
-          `https://api.github.com/repos/nitin7213/${learning.title}/contents/${fileName}`,
-          {
-            headers: {
-              Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
-            },
-          }
+          `https://api.github.com/repos/nitin7213/${learning.title}/contents/${fileName}`
+          // {
+          //   headers: {
+          //     Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
+          //   },
+          // }
         );
         const content = atob(response.data.content);
         setFileContent(content);
